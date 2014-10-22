@@ -1,12 +1,15 @@
 ﻿Configuration SetPullMode {
     param(
-        [string[]]$ComputerName = 'localhost',
+        [Parameter(mandatory=$True)]
+        [string]$ComputerName = 'localhost',
+
+        [Parameter(mandatory=$True)]
         [string]$guid
     )
 
     Node $ComputerName {
         LocalConfigurationManager {
-            ConfigurationMode         = 'ApplyOnly'
+            ConfigurationMode         = 'ApplyAndAutoCorrect'
             ConfigurationID           = $guid
             RefreshMode               = 'Pull'
             DownloadManagerName       = 'WebDownloadManager'

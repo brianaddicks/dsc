@@ -4,7 +4,7 @@
     )
 
     Node $ComputerName {
-            WindowsFeature Backup {
+        WindowsFeature Backup {
             Ensure = 'Present'
             Name = 'Windows-Server-Backup'
         }
